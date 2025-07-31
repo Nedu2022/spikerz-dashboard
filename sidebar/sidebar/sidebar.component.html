@@ -1,0 +1,48 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed" (click)="expandIfCollapsed($event)">
+
+  <button class="toggle-btn" (click)="toggleSidebar($event)" [class.image-error]="imageError">
+    <img src="assets/collapser.svg" alt="Toggle sidebar" 
+         (error)="onImageError($event)" 
+         [class.hidden]="imageError" />
+    <!-- Fallback if image fails to load -->
+    <span class="fallback-arrow" [class.visible]="imageError">‹</span>
+  </button>
+
+
+  <!-- Main menu items -->
+  <nav class="menu">
+    <ul>
+      <li *ngFor="let item of menuItems" 
+          [class.active]="item.active"
+          (click)="setActive(item)">
+        <a href="#" (click)="$event.preventDefault()">
+          <img [src]="item.icon" alt="{{ item.label }} icon" />
+          <span class="label" *ngIf="!isCollapsed">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Bottom section -->
+  <div class="bottom-section">
+    <!-- Settings and notifications -->
+    <ul class="bottom-menu">
+      <li *ngFor="let item of bottomItems">
+        <a href="#" (click)="$event.preventDefault()">
+          <img [src]="item.icon" alt="{{ item.label }} icon" />
+          <span class="label" *ngIf="!isCollapsed">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- User section -->
+    <div class="user-section">
+      <img src="assets/user.svg" alt="User avatar" class="avatar" />
+      <div class="user-info" *ngIf="!isCollapsed">
+        <span class="user-name">Lorem</span>
+        <span class="user-subtitle">Lorem</span>
+      </div>
+      <img src="assets/logout.svg" alt="Logout" class="logout-icon" *ngIf="!isCollapsed" />
+    </div>
+  </div>
+</aside>

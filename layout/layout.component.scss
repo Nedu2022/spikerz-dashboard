@@ -1,0 +1,55 @@
+.layout-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100dvh;
+  background-color: #f9f9f9;
+}
+
+.sidebar {
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+  position: relative;
+
+  .back-arrow {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+  }
+}
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 385px 1fr;
+  grid-template-rows: 1fr;
+  gap: 1.5rem;
+  padding: var(--spacing-md);
+  height: 100vh;
+  overflow: hidden;
+
+  .top-section {
+    grid-column: 1;
+    grid-row: 1;
+    overflow-y: auto;
+    border-radius: var(--border-radius-xl);
+  }
+
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    background-color: var(--white);
+    height: 744px;
+    width: 787px;
+    border-radius: var(--border-radius-xl);
+    padding: 20px 30px;
+
+    app-network-flow {
+      grid-row: 1;
+    }
+
+    app-risk-overview {
+      grid-row: 2;
+    }
+  }
+}

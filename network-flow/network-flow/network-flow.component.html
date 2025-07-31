@@ -1,0 +1,60 @@
+<div>
+  <h2 class="section-title">Lorem Lorem Lorem</h2>
+
+<div class="main-flow">
+
+
+  <div class="network-diagram">
+    <!-- Top flow (source → middle1 → middle2) -->
+    <div class="network-row">
+      <!-- Source -->
+      <div class="network-node">
+        <img [src]="sourceNode.imageUrl" class="node-img" alt="Source" />
+        <span class="node-label">{{ sourceNode.label }}</span>
+        <span class="node-ip" *ngIf="sourceNode.ip">{{ sourceNode.ip }}</span>
+      </div>
+
+      <!-- Arrow -->
+      <img src="assets/image.svg" class="arrow-img" alt="→" />
+
+      <!-- Middle 1 -->
+      <div class="network-node">
+        <img [src]="middleNode[0].imageUrl" class="node-img" alt="Middle 1" />
+        <span class="node-label">{{ middleNode[0].label }}</span>
+      </div>
+
+      <!-- Arrow -->
+      <img src="assets/image.svg" class="arrow-img" alt="→" />
+
+      <!-- Middle 2 -->
+      <div class="network-node">
+        <img [src]="middleNode[1].imageUrl" class="node-img" alt="Middle 2" />
+        <span class="node-label">{{ middleNode[1].label }}</span>
+      </div>
+    </div>
+
+    <!-- Curved branch arrow to end nodes -->
+    <img src="assets/bi-connection.svg" class="arrow-branch" alt="branch" />
+
+    <!-- End nodes row -->
+    <div class="bi-row">
+      <div class="network-node" *ngFor="let node of endFlows">
+        <img [src]="node.imageUrl" class="node-img" alt="End Node" />
+        <span class="node-label">{{ node.label }}</span>
+        <span class="node-ip">{{ node.ip }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status indicators -->
+<div class="network-status">
+  <div class="status-node" *ngFor="let node of statusNodes">
+    <img [src]="node.imageUrl" class="status-img" [alt]="node.imageAltText" />
+    <span class="node-label" [style.color]="node.color || getColorByType(node.type)">
+      {{ node.label }}
+    </span>
+  </div>
+</div>
+
+</div>
+</div>

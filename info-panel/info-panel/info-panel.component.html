@@ -1,0 +1,52 @@
+<!-- info-panel.component.html - CSS Split Approach -->
+<div class="info">
+    <h2 class="section-title">Description</h2>
+    <div class="description-text description-split">{{descriptionText}}</div>
+
+    <div class="extra-section">
+        <h2 class="section-title">Extra</h2>
+        <p class="description-text">{{extraText}}</p>
+    </div>
+
+    <ul class="info-list">
+        <li class="info-item" *ngFor="let item of infoItems">
+            <span class="label">{{item.label}}</span>
+            <span class="value" [class.success]="item.isSuccess">{{item.value}}</span>
+        </li>
+    </ul>
+
+    <!-- Server List Section -->
+   <div class="server-list-container">
+        <h1 class="main-title">{{ mainTitle }}</h1>
+        
+        <div class="server-section" *ngFor="let server of servers; let i = index">
+            
+
+<div class="server-card" (click)="toggleServer(i)">
+  <h2 class="server-section-title">{{ server.title }}</h2>
+
+  <div class="server-info">
+    <div class="server-icon">
+      <img [src]="server.iconUrl" [alt]="server.name + ' icon'" class="server-icon-image">
+    </div>
+    <div class="server-details">
+      <div class="server-name">{{ server.name }}</div>
+      <div class="server-subtitle">{{ server.subtitle }}</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="server-description">
+      {{ server.description }}
+    </div>
+  </div>
+
+ 
+  <div class="expanded-content" *ngIf="server.isExpanded && server.expandedContent">
+    {{ server.expandedContent }}
+  </div>
+</div>
+
+        </div>
+    </div>
+</div>
