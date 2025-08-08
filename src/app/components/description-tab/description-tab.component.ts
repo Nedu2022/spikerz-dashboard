@@ -54,7 +54,7 @@ export class DescriptionTabComponent {
       subtitle: 'server',
       description: 'Lorem Ipsum Dolor Sit\nAmet Consectetur.',
       iconUrl: 'oad-balancer.svg',
-      expandedContent: 'Lorem Ipsum Dolor Sit Amet Consectetur, Nunc Vitae Tortor Convallis Vitae Arcu. Magna.'
+      expandedContent: 'Lorem ipsum dolor sit amet consectetur. Nunc vitae tortor convallis vitae arcu. Magna.'
     },
         {
       title: 'Lorem P',
@@ -62,7 +62,7 @@ export class DescriptionTabComponent {
       subtitle: 'server',
       description: 'Lorem Ipsum Dolor Sit\nAmet Consectetur.',
       iconUrl: 'oad-balancer.svg',
-      expandedContent: 'Lorem Ipsum Dolor Sit Amet Consectetur, Nunc Vitae Tortor Convallis Vitae Arcu. Magna.'
+      expandedContent: 'Lorem ipsum dolor sit amet consectetur. Quis viverra etiam pellentesque lectus semper in massa purus. Auctor aenean aenean senectus massa dignissim vehicula mi erat purus. Praesent scelerisque aliquet metus sagittis dictum sed sed. Sed venenatis sed urna quam.'
     },
         {
       title: 'Lorem P',
@@ -70,7 +70,7 @@ export class DescriptionTabComponent {
       subtitle: 'server',
       description: 'Lorem Ipsum Dolor Sit\nAmet Consectetur.',
       iconUrl: 'oad-balancer.svg',
-      expandedContent: 'Lorem Ipsum Dolor Sit Amet Consectetur, Nunc Vitae Tortor Convallis Vitae Arcu. Magna.'
+      expandedContent: 'Lorem ipsum dolor sit amet consectetur. In laoreet elementum luctus odio. Id enim urna.'
     }
   ]
 

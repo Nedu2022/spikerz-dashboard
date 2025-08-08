@@ -1,9 +1,22 @@
-<div class="sidebar" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }">
+<button aria-label="Button" class="hamburger-btn" (click)="toggleSidebar()" *ngIf="isMobileView">
+    <div class="hamburger-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</button>
+
+<div class="overlay" *ngIf="sidebarOpenOnMobile" (click)="closeSidebar()"></div>
+
+<div class="sidebar" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed, 'sidebar-open': sidebarOpenOnMobile }">
   <div class="sidebar-header">
     <a href="#" class="sidebar-logo">
       {{ isSidebarCollapsed ? "C" : "" }}
     </a>
   </div>
+
+  <button class="close-btn" *ngIf="isMobileView" (click)="closeSidebar()">×</button>
+
 
   <nav class="sidebar-menu">
     <ng-container>

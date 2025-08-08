@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgClass, NgFor } from '@angular/common';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 interface MenuItem {
   icon: string;
@@ -14,7 +14,7 @@ interface BottomItem {
 
 @Component({
   selector: 'app-sidebar',
-  imports: [NgClass, NgFor],
+  imports: [NgClass, NgFor, NgIf],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
@@ -72,13 +72,44 @@ export class SidebarComponent {
     },
   ];
 
-  toggleSidebar() {
-    this.sidebarToggle.emit();
+  isMobileView = false;
+  sidebarOpenOnMobile = false;
+
+  constructor() {
+    this.checkScreenWidth();
   }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.checkScreenWidth();
+  }
+  
+  checkScreenWidth() {
+    this.isMobileView = window.innerWidth <= 768;
+    if (!this.isMobileView) {
+      this.sidebarOpenOnMobile = false;
+    }
+  }
+
+  toggleSidebar() {
+    if (this.isMobileView) {
+      this.sidebarOpenOnMobile = !this.sidebarOpenOnMobile;
+    } else {
+      this.sidebarToggle.emit();
+    }
+  }
+
+  closeSidebar() {
+    this.sidebarOpenOnMobile = false;
+  }
+
 
   setActive(selectedItem: MenuItem) {
     this.menuItems.forEach(item => item.active = false);
     selectedItem.active = true;
+    if (this.isMobileView) {
+      this.sidebarOpenOnMobile = false;
+    }
   }
 
 

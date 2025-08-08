@@ -1,16 +1,20 @@
-<div class="container">
-  <div class="left-panel">
-    <app-description-tab></app-description-tab>
-  </div>
+<div class="container-fluid py-3">
+  <div class="row g-3 responsive-panels">
+    
+    <!-- Left Panel -->
+    <div class="col-12 col-lg-4 left-panel">
+      <app-description-tab></app-description-tab>
+    </div>
 
-  <div class="right-panel">
-    <div class="right-panel-content">
-      <app-network-flow></app-network-flow>
-      <div class="bottom-panel">
-        <h1>Lorem ipsum dolor sit</h1>
-        <div class="bottom-holder">
+    <!-- Right Panel -->
+    <div class="col-12 col-lg-8 right-panel">
+      <div class="bg-white rounded-3 p-3 shadow-sm h-100">
+        <div>
+          <app-network-flow></app-network-flow>
+        </div>
+        <div class="mt-4">
+          <h1 class="fs-5 text-success mb-3">Lorem ipsum dolor sit</h1>
           <app-risk-table></app-risk-table>
-          <app-context-risk></app-context-risk>
         </div>
       </div>
     </div>
