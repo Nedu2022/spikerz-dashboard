@@ -1,0 +1,46 @@
+    <div class="table-container">
+      <table class="risk-table">
+        <thead class="table-header">
+          <tr>
+            <th>Asset</th>
+            <th>Contextual Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-row" *ngFor="let asset of assets">
+            <td class="asset-cell">
+              <div class="asset-icon">
+                <img src="oad-balancer.svg" alt="Oad Balancer" />
+                <div class="asset-info">
+                  <div class="asset-name">{{ asset.name }}</div>
+                  <div class="asset-ip">{{ asset.ip }}</div>
+                </div>
+              </div>
+
+              <span [class]="getRiskBadgeClass(asset.contextualRisk)">
+                {{ asset.contextualRisk }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+   
+      <div class="pagination">
+        <button
+          class="pagination-btn"
+          (click)="previousPage()"
+          [disabled]="currentPage === 1"
+        >
+          ‹
+        </button>
+        <span class="pagination-info">Showing 1-2 of 2</span>
+        <button
+          class="pagination-btn"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages"
+        >
+          ›
+        </button>
+      </div>
+    </div>

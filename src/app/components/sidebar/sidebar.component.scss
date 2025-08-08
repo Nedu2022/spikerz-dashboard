@@ -1,0 +1,169 @@
+.sidebar {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  overflow-x: hidden;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
+
+  span {
+    color: #525d73;
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  position: relative;
+  display: none;
+}
+
+.sidebar-logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sidebar-menu {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .active {
+    background-color: #dcfce7;
+    color: #16a34a;
+    border-radius: 8px;
+
+    .label {
+      color: #16a34a;
+      font-weight: 500;
+    }
+  }
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  i {
+    // margin-right: 0.75rem;
+
+    &.sidebar-item-arrow {
+      margin-left: auto;
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &-text {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+.sidebar-submenu {
+  background-color: rgba(0, 0, 0, 0.1);
+
+  .sidebar-item {
+    padding-left: 3rem;
+    font-size: 0.9rem;
+  }
+}
+
+.sidebar-collapsed {
+  width: 80px;
+  span {
+    display: none;
+  }
+
+  .logout-icon {
+    display: none;
+  }
+
+  .sidebar-item {
+    i {
+      margin-right: 0;
+    }
+    &-text,
+    &-arrow {
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+    }
+  }
+
+  .sidebar-submenu {
+    display: none;
+  }
+}
+
+.bottom-element {
+  padding-bottom: 20px;
+}
+
+.bottom-menu {
+  list-style: none;
+  padding: 0px;
+
+  li {
+    padding: 10px 12px;
+    gap: 10px;
+
+    display: flex;
+  }
+}
+
+.user-section {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e0e2e7;
+  padding-top: 12px;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}

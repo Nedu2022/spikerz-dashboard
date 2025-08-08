@@ -1,0 +1,41 @@
+<div class="sidebar" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }">
+  <div class="sidebar-header">
+    <a href="#" class="sidebar-logo">
+      {{ isSidebarCollapsed ? "C" : "" }}
+    </a>
+  </div>
+
+  <nav class="sidebar-menu">
+    <ng-container>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item" *ngFor="let item of menuItems" 
+        [class.active]="item.active" (click)="setActive(item)">
+          <img [src]="item.icon" alt="{{ item.label }}" />
+          <span class="sidebar-item-text">{{ item.label }}
+        </span>
+      </ul>
+    </ng-container>
+  </nav>
+  <div class="bottom-element">
+    <div class="bottom-section">
+      <ul class="bottom-menu">
+        <li *ngFor="let item of bottomItems">
+          <img [src]="item.icon" alt="{{ item.label }} label" />
+          <span class="label">{{ item.label }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="user-section">
+      <div class="user-details">
+        <img src="/user.svg" alt="User avatar" class="avatar" />
+        <div class="user-info">
+          <span class="user-name">Lorem</span>
+          <span class="user-subtitle">Lorem</span>
+        </div>
+      </div>
+
+      <img src="/logout.svg" alt="Logout" class="logout-icon" />
+    </div>
+  </div>
+</div>

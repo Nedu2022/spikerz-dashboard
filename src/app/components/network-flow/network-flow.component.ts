@@ -1,0 +1,102 @@
+import { Component } from '@angular/core';
+import { NgFor, NgClass } from '@angular/common';
+
+interface NetworkFlow {
+  id: string,
+  label: string,
+  imageUrl: string,
+  imageAltText: string
+}
+
+interface endNode {
+  id: string,
+  label: string,
+  imageUrl: string,
+  imageAltText: string,
+  ip: string
+}
+
+interface SignalFlow {
+  id: string,
+  label: string,
+  status: string,
+  imageUrl: string,
+  imageAltText: string
+}
+
+@Component({
+  selector: 'app-network-flow',
+  imports: [NgFor, NgClass],
+  templateUrl: './network-flow.component.html',
+  styleUrl: './network-flow.component.scss'
+})
+
+export class NetworkFlowComponent {
+
+  sourceNode: NetworkFlow = 
+    {
+    id: 'first-node',
+    label: 'Loremipsumm',
+    imageUrl: 'purple-user.svg',
+    imageAltText: 'Firewall Icon'
+  }
+
+
+middleNode: NetworkFlow[] = [
+    {
+    id: 'second-node',
+    label: 'Loremipsumm',
+    imageUrl: 'purple-user.svg',
+    imageAltText: 'Firewall Icon'
+  },
+  {
+    id: 'third-node',
+       label: 'Loremipsu',
+      imageUrl: 'oad-balancer.svg',
+      imageAltText: 'Server Icon'
+  },
+]
+
+endNodes: endNode[] = [
+  {
+    id: 'fourth-node',
+      ip: '192.168.1.1',
+    label: 'Loremipsumdolorsit',
+      imageUrl: 'red-stack.svg',
+      imageAltText: 'Server Icon'
+  },
+      {
+      id: 'end2',
+            ip: '192.168.1.2',
+      label: 'Loremipsumdolorsit002',
+      imageUrl: 'red-stack.svg',
+      imageAltText: 'Server Icon'
+    }
+]
+
+
+statusNode: SignalFlow[] = [
+  {
+    id: 'status1',
+    label: 'Lorem',
+    imageUrl: 'red-shield.svg',
+    imageAltText: 'Danger',
+    status: 'danger'
+  },
+    {
+    id: 'status2',
+    label: 'Lorem',
+    imageUrl: 'yellow-shield.svg',
+    imageAltText: 'Warning',
+    status: 'warning'
+  },
+    {
+    id: 'status3',
+    label: 'Lorem',
+    imageUrl: 'green-shield.svg',
+    imageAltText: 'Success',
+    status: 'success'
+  }
+]
+
+}

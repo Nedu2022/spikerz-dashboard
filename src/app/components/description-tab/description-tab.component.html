@@ -1,0 +1,49 @@
+<div class="info">
+    <h2 class="info-title">Description</h2>
+    <p class="description-text">{{descriptionText}}</p>
+
+    <div class="extra-container">
+        <h2 class="info-title">Extra</h2>
+        <p class="description-text">{{extraText}}</p>
+    </div>
+
+    <ul class="info-list">
+        <li class="info-item" *ngFor="let item of infoItems">
+            <p class="title">{{item.title}}</p>
+            <p class="description">{{item.description}}</p>
+        </li>
+    </ul>
+
+<mat-accordion *ngFor="let server of servers" hideToggle>
+  <mat-expansion-panel>
+
+
+    <mat-expansion-panel-header>
+            <p class="panel-title">{{ server.title }}</p>
+      <div class="header-flex">
+        <div class="server-icon">
+          <img [src]="server.iconUrl" [alt]="server.title + ' icon'" />
+        </div>
+
+        <div class="server-details">
+          <p class="name">{{ server.name }}</p>
+          <p class="subtitle">{{ server.subtitle }}</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="server-describe">
+          {{ server.description }}
+        </p>
+      </div>
+    </mat-expansion-panel-header>
+
+    <div class="expanded-content">
+      {{ server.expandedContent }}
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+</div>

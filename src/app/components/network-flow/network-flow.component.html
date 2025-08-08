@@ -1,0 +1,47 @@
+<div>
+  <h2 class="section-title">Lorem Lorem Lorem</h2>
+
+  <div class="main-flow">
+    <div class="network-diagram">
+      <div class="network-row">
+        <div class="network-node">
+          <img [src]="sourceNode.imageUrl" alt="" />
+          <p class="node-label">{{ sourceNode.label }}</p>
+        </div>
+
+        <img src="image.svg" alt="Arrow-Left" />
+
+        <div class="network-node">
+          <img [src]="middleNode[0].imageUrl" alt="" />
+          <p class="node-label">{{ middleNode[0].label }}</p>
+        </div>
+
+        <img src="image.svg" alt="Arrow-Left" />
+
+        <div class="network-node">
+          <img [src]="middleNode[1].imageUrl" alt="" />
+          <p class="node-label">{{ middleNode[1].label }}</p>
+        </div>
+      </div>
+      <img src="bi-connection.svg" alt="Arrow-Left" />
+
+      <div class="bi-row">
+        <div class="network-binode" *ngFor="let node of endNodes">
+          <img [src]="node.imageUrl" class="node-img" alt="End Node" />
+          <span class="node-label">{{ node.label }}</span>
+          <p class="node-ip">{{node.ip}}</p>
+        </div>
+      </div>
+    </div>
+
+        <div class="network-status">
+      <div class="status-node" *ngFor="let node of statusNode" >
+        <img [src]="node.imageUrl" class="status-img" [alt]="node.imageAltText" />
+        <span class="node-label-status" [ngClass]="node.status">
+          {{ node.label }}
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>

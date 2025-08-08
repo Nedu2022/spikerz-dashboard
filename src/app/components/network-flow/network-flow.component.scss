@@ -1,0 +1,78 @@
+.section-title {
+  color: #02983e;
+  font-size: 20px;
+  font-weight: semi-bold;
+  margin-bottom: 24px;
+}
+
+.main-flow {
+  background-color: #fafafa;
+  border-radius: 15px;
+  width: 100%;
+  min-width: 727px;
+  height: 307px;
+}
+
+.node-label {
+  font-weight: 500;
+  font-size: 13px;
+  color: #3b3b3b;
+}
+
+.node-label-status {
+  font-weight: 700;
+  font-size: 15px;
+  &.danger {
+    color: #e5372b;
+  }
+
+  &.warning {
+    color: #ff9500;
+  }
+
+  &.success {
+    color: #02983e;
+  }
+}
+
+.network-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  margin: 16px 0;
+}
+
+.network-diagram {
+  display: flex;
+  padding: 22px 16px;
+  overflow-x: auto;
+}
+
+.bi-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.network-binode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .node-img {
+    width: 52.92px;
+    height: 52.92px;
+  }
+}
+
+.network-status {
+  display: flex;
+  gap: 32px;
+  padding: 16px;
+  border-top: 1px solid #ddd;
+}
+
+.node-ip {
+  font-size: 9.45px;
+  color: #7a7a7a;
+}
