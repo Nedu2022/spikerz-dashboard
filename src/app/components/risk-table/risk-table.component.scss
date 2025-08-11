@@ -21,10 +21,8 @@
 .risk-table-card,
 .risk-summary-card {
   width: 100%;
-  flex: 1;  
+  flex: 1;
 }
-
-
 
 .risk-table-card {
   border: 1px solid #e5e7eb;
@@ -43,7 +41,7 @@
       th {
         padding: 13px;
         font-size: 14px;
-        color: #858D9D;
+        color: #858d9d;
         text-align: left;
       }
       tr {
@@ -62,10 +60,9 @@
     display: flex;
     align-items: center;
     gap: 2px;
-img {
-   width: 45px;
-}
- 
+    img {
+      width: 45px;
+    }
   }
 
   .asset-info {
@@ -76,12 +73,12 @@ img {
   .asset-name {
     font-weight: 600;
     font-size: 13px;
-    color: #525D73;
+    color: #525d73;
   }
 
   .asset-ip {
     font-size: 9.45px;
-    color: #525D73;
+    color: #525d73;
   }
 
   .asset-cell {
@@ -89,6 +86,15 @@ img {
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+
+    span {
+      background-color: #FFE2E0;
+      color: #C6190D;
+      padding: 2px 16px;
+      border-radius: 38px;
+      font-size: 15px;
+      font-weight: bold;
+    }
   }
 
   .pagination {
@@ -118,7 +124,6 @@ img {
     }
   }
 }
-
 
 .risk-summary-card {
   background: #fff;
@@ -163,10 +168,18 @@ img {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    &.critical { background-color: #e03131; }
-    &.high { background-color: #f76707; }
-    &.medium { background-color: #fab005; }
-    &.low { background-color: #37b24d; }
+    &.critical {
+      background-color: #e03131;
+    }
+    &.high {
+      background-color: #f76707;
+    }
+    &.medium {
+      background-color: #fab005;
+    }
+    &.low {
+      background-color: #37b24d;
+    }
   }
 }
 
@@ -184,7 +197,7 @@ img {
     fill: none;
     stroke: #d11e1e;
     stroke-width: 6;
-    stroke-dasharray: 276.46; 
+    stroke-dasharray: 276.46;
     stroke-dashoffset: 276.46;
     transition: stroke-dashoffset 1s ease-out;
   }
