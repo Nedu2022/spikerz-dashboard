@@ -5,7 +5,7 @@ interface NetworkFlow {
   id: string,
   label: string,
   imageUrl: string,
-  imageAltText: string
+  imageAltText: string,
 }
 
 interface endNode {
@@ -13,7 +13,8 @@ interface endNode {
   label: string,
   imageUrl: string,
   imageAltText: string,
-  ip: string
+  ip: string,
+    details?: any
 }
 
 interface SignalFlow {
@@ -47,13 +48,13 @@ middleNode: NetworkFlow[] = [
     id: 'second-node',
     label: 'Loremipsumm',
     imageUrl: 'purple-user.svg',
-    imageAltText: 'Firewall Icon'
+    imageAltText: 'Firewall Icon',
   },
   {
     id: 'third-node',
        label: 'Loremipsu',
       imageUrl: 'oad-balancer.svg',
-      imageAltText: 'Server Icon'
+      imageAltText: 'Server Icon',
   },
 ]
 
@@ -62,15 +63,33 @@ endNodes: endNode[] = [
     id: 'fourth-node',
       ip: '192.168.1.1',
     label: 'Loremipsumdolorsit',
-      imageUrl: 'red-stack.svg',
-      imageAltText: 'Server Icon'
+     imageUrl: 'red-stack.svg',
+      imageAltText: 'Server Icon',
+          details: {
+      title: 'Loremipsumdolorsit',
+      subtitle: '192.168.1.1',
+      // imageUrl: 'red-stack.svg',
+      rows: [
+        {icon: 'hover-doc.svg', text1: 'Lorem:', text2: 'Lorem “ipsum"'},
+        {text3: 'Loremipsum', text4:'lorem 1234,5678'}
+      ]
+    }
   },
       {
       id: 'end2',
             ip: '192.168.1.2',
       label: 'Loremipsumdolorsit002',
       imageUrl: 'red-stack.svg',
-      imageAltText: 'Server Icon'
+      imageAltText: 'Server Icon',
+                details: {
+      title: 'Loremipsumdolorsit',
+      subtitle: '192.168.1.1',
+      // imageUrl: 'red-stack.svg',
+      rows: [
+        {icon: 'hover-doc.svg', text1: 'Lorem:', text2: 'Lorem “ipsum"'},
+        {text3: 'Loremipsum', text4:'lorem 1234,5678'}
+      ]
+    }
     }
 ]
 
