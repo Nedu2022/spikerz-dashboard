@@ -3,6 +3,9 @@
 
   <div class="main-flow">
     <div class="network-diagram">
+      <div class="network-scroll">
+        
+      </div>
       <div class="network-row">
         <div class="network-node">
           <img [src]="sourceNode.imageUrl" alt="" />
@@ -25,50 +28,70 @@
       </div>
       <img src="bi-connection.svg" alt="Arrow-Left" />
 
-      <div class="bi-row">
-        <div class="network-binode" *ngFor="let node of endNodes">
-          <img [src]="node.imageUrl" class="node-img" alt="End Node" />
-          <span class="node-label">{{ node.label }}</span>
-          <p class="node-ip">{{node.ip}}</p>
+      <div class="bi-holder">
+        <div
+          class="bi-row"
+          *ngFor="let node of endNodes"
+          (mouseenter)="hoverNode = node"
+          (mouseleave)="hoverNode = node"
+        >
+          <div class="network-binode">
+            <img [src]="node.imageUrl" class="node-img" alt="End Node" />
+            <span class="node-label">{{ node.label }}</span>
+            <p class="node-ip">{{ node.ip }}</p>
+          </div>
+
+          <!-- Hover card with proper positioning -->
+          <div class="hover-card" *ngIf="hoverNode === node">
+            <div>
+              <!-- Header -->
+              <div class="card-header">
+                <div class="card-icon">
+                  <img [src]="node.imageUrl" alt="Server" />
+                </div>
+                <div class="card-title">
+                  <h3>{{ node.details.title }}</h3>
+                  <p class="subtitle">{{ node.details.subtitle }}</p>
+                </div>
+              </div>
+
+              <!-- Rows -->
+              <div class="card-row" *ngFor="let row of node.details.rows">
+                <!-- Row type with icon -->
+                <div class="row-content" *ngIf="row.text1 && row.text2">
+                  <img
+                    *ngIf="row.icon"
+                    [src]="row.icon"
+                    alt="Doc Icon"
+                    class="row-icon"
+                  />
+                  <strong>{{ row.text1 }}</strong>
+                  <span class="highlight-orange">{{ row.text2 }}</span>
+                </div>
+
+                <!-- Row type without icon -->
+                <div class="row-content" *ngIf="row.text3 && row.text4">
+                  <strong>{{ row.text3 }}</strong>
+                  <span class="highlight-blue">{{ row.text4 }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-        <div class="network-status">
-      <div class="status-node" *ngFor="let node of statusNode" >
-        <img [src]="node.imageUrl" class="status-img" [alt]="node.imageAltText" />
+    <div class="network-status">
+      <div class="status-node" *ngFor="let node of statusNode">
+        <img
+          [src]="node.imageUrl"
+          class="status-img"
+          [alt]="node.imageAltText"
+        />
         <span class="node-label-status" [ngClass]="node.status">
           {{ node.label }}
         </span>
       </div>
     </div>
-
-    <div class="hover-card">
-  <!-- Header -->
-  <div class="card-header">
-    <div class="card-icon">
-      <img src="purple-user.svg" alt="Server" />
-    </div>
-    <div class="card-title">
-      <h3>Loremipsumdolorsit</h3>
-      <p class="subtitle">192.168.1.1</p>
-    </div>
-  </div>
-
-  <!-- Row 1 -->
-  <div class="card-row">
-    <img src="document.svg" alt="Doc Icon" class="row-icon" />
-    <strong>Lorem:</strong>
-    <span class="highlight-orange">Lorem “Ipsum"</span>
-  </div>
-
-  <!-- Row 2 -->
-  <div class="card-row">
-    <strong>Loremipsum</strong>
-    <span class="highlight-blue">Lorem 1234,5678</span>
-  </div>
-</div>
-
-
   </div>
 </div>

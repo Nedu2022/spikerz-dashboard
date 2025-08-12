@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor, NgClass } from '@angular/common';
+import { NgFor, NgClass, NgIf } from '@angular/common';
 
 interface NetworkFlow {
   id: string,
@@ -27,38 +27,13 @@ interface SignalFlow {
 
 @Component({
   selector: 'app-network-flow',
-  imports: [NgFor, NgClass],
+  imports: [NgFor, NgClass, NgIf],
   templateUrl: './network-flow.component.html',
   styleUrl: './network-flow.component.scss'
 })
 
 export class NetworkFlowComponent {
-
-  sourceNode: NetworkFlow = 
-    {
-    id: 'first-node',
-    label: 'Loremipsumm',
-    imageUrl: 'purple-user.svg',
-    imageAltText: 'Firewall Icon'
-  }
-
-
-middleNode: NetworkFlow[] = [
-    {
-    id: 'second-node',
-    label: 'Loremipsumm',
-    imageUrl: 'purple-user.svg',
-    imageAltText: 'Firewall Icon',
-  },
-  {
-    id: 'third-node',
-       label: 'Loremipsu',
-      imageUrl: 'oad-balancer.svg',
-      imageAltText: 'Server Icon',
-  },
-]
-
-endNodes: endNode[] = [
+  endNodes: endNode[] = [
   {
     id: 'fourth-node',
       ip: '192.168.1.1',
@@ -84,7 +59,7 @@ endNodes: endNode[] = [
                 details: {
       title: 'Loremipsumdolorsit',
       subtitle: '192.168.1.1',
-      // imageUrl: 'red-stack.svg',
+      imageUrl: 'red-stack.svg',
       rows: [
         {icon: 'hover-doc.svg', text1: 'Lorem:', text2: 'Lorem “ipsum"'},
         {text3: 'Loremipsum', text4:'lorem 1234,5678'}
@@ -92,6 +67,66 @@ endNodes: endNode[] = [
     }
     }
 ]
+  hoverNode: endNode | null = null;
+
+  sourceNode: NetworkFlow =
+    {
+    id: 'first-node',
+    label: 'Loremipsumm',
+    imageUrl: 'purple-user.svg',
+    imageAltText: 'Firewall Icon'
+  }
+
+
+middleNode: NetworkFlow[] = [
+    {
+    id: 'second-node',
+    label: 'Loremipsumm',
+    imageUrl: 'purple-user.svg',
+    imageAltText: 'Firewall Icon',
+  },
+  {
+    id: 'third-node',
+       label: 'Loremipsu',
+      imageUrl: 'oad-balancer.svg',
+      imageAltText: 'Server Icon',
+  },
+]
+
+// endNodes: endNode[] = [
+//   {
+//     id: 'fourth-node',
+//       ip: '192.168.1.1',
+//     label: 'Loremipsumdolorsit',
+//      imageUrl: 'red-stack.svg',
+//       imageAltText: 'Server Icon',
+//           details: {
+//       title: 'Loremipsumdolorsit',
+//       subtitle: '192.168.1.1',
+//       // imageUrl: 'red-stack.svg',
+//       rows: [
+//         {icon: 'hover-doc.svg', text1: 'Lorem:', text2: 'Lorem “ipsum"'},
+//         {text3: 'Loremipsum', text4:'lorem 1234,5678'}
+//       ]
+//     }
+//   },
+//       {
+//       id: 'end2',
+//             ip: '192.168.1.2',
+//       label: 'Loremipsumdolorsit002',
+//       imageUrl: 'red-stack.svg',
+//       imageAltText: 'Server Icon',
+//                 details: {
+//       title: 'Loremipsumdolorsit',
+//       subtitle: '192.168.1.1',
+//       imageUrl: 'red-stack.svg',
+//       rows: [
+//         {icon: 'hover-doc.svg', text1: 'Lorem:', text2: 'Lorem “ipsum"'},
+//         {text3: 'Loremipsum', text4:'lorem 1234,5678'}
+//       ]
+//     }
+//     }
+// ]
 
 
 statusNode: SignalFlow[] = [
