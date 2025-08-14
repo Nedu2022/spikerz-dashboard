@@ -25,11 +25,19 @@ standalone: true
 export class RiskTableComponent {
   assets: RiskAsset[] = [
     { name: 'Loremipsumdolorsit', ip: '192.168.1.1', contextualRisk: 'Critical' },
+    { name: 'Loremipsumdolorsit002', ip: '192.168.1.2', contextualRisk: 'Critical' },
+        { name: 'Loremipsumdolorsit', ip: '192.168.1.1', contextualRisk: 'Critical' },
     { name: 'Loremipsumdolorsit002', ip: '192.168.1.2', contextualRisk: 'Critical' }
   ];
 
     currentPage = 1;
-  totalPages = 1;
+  itemsPerPage = 2;
+  totalPages = Math.ceil(this.assets.length / this.itemsPerPage);
+
+  get paginatedAssets(): RiskAsset[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.assets.slice(startIndex, startIndex + this.itemsPerPage);
+  }
 
     getRiskBadgeClass(risk: string): string {
     return `risk-badge ${risk.toLowerCase()}`;
