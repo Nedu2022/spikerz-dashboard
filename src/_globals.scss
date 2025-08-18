@@ -14,3 +14,12 @@ body {
 }
 
 
+@media (max-width: 768px) {
+  .server-panel-header {
+    padding: 6px 4px !important;
+  }
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: none !important;
+}

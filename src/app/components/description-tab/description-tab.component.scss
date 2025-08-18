@@ -67,7 +67,7 @@
 }
 
 
-::ng-deep .server-panel-header {
+:host ::ng-deep .server-panel-header {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -77,6 +77,8 @@
   min-height: unset !important;
   height: auto !important;
 }
+
+
 
 
 ::ng-deep .server-panel-header .mat-content {
@@ -98,7 +100,6 @@
 .header-flex {
   display: flex;
   align-items: center;
-  width: 100%;
   background-color: #FAFAFA;
   border-radius: 8px;
   padding: 6px 16px;
@@ -132,7 +133,7 @@
 .divider {
   width: 1px;
   height: 40px;
-  background: #e0e2e7;
+  background-color: #e0e2e7;
   margin: 0 16px;
 }
 
@@ -142,6 +143,10 @@
   color: #404A60;
   margin: 0;
   line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+  }
 }
 
 
@@ -164,11 +169,13 @@
   }
 
   .divider {
-    display: none;
+    margin: 0 2px;
+    background-color: pink;
   }
 
   .server-describe {
     max-width: 100%;
+    font-size: 9px;
   }
 
   mat-expansion-panel-header {

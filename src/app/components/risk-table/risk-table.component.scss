@@ -163,6 +163,7 @@
     gap: 8px;
     font-size: 14px;
   }
+}
 
   .legend-dot {
     width: 8px;
@@ -181,33 +182,54 @@
       background-color: #37b24d;
     }
   }
-}
 
-/* Risk Circle */
-.risk-circle {
-  position: relative;
-  width: 100px;
-  height: 100px;
-
-  .progress-ring {
-    transform: rotate(-90deg);
+  .critical {
+    color: #e03131;
+  }
+  .high {
+    color: #f76707;
+  }
+  .medium {
+    color: #fab005;
+  }
+  .low {
+    color: #37b24d;
   }
 
-  .progress-ring__circle {
-    fill: none;
-    stroke: #d11e1e;
-    stroke-width: 6;
-    stroke-dasharray: 276.46;
-    stroke-dashoffset: 276.46;
-    transition: stroke-dashoffset 1s ease-out;
+  .risk-circle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+
+    .progress-ring {
+      transform: rotate(-90deg);
+
+    }
+
+    .progress-ring__circle {
+      fill: none;
+      stroke-width: 6;
+      stroke-dasharray: 276.46;
+      stroke-dashoffset: 276.46;
+      transition: stroke-dashoffset 1s ease-out;
+    }
+
+    .circle-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 28px;
+      color: #495057;
+    }
   }
 
-  .circle-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 28px;
-    color: #495057;
+  /* Added keyframe for spin */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-}

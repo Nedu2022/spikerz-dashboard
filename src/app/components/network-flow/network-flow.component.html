@@ -4,75 +4,95 @@
   <div class="main-flow">
     <div class="network-diagram">
       <div class="scroll-inner"></div>
-<div class="network-row">
-<div class="network-node" 
-     *ngFor="let node of sourceNode"
-     (mouseenter)="sigNode = node"
-     (mouseleave)="sigNode = null">
+      <div class="network-row">
+        <div
+          class="network-node"
+          *ngFor="let node of sourceNode"
+          (mouseenter)="sigNode = node"
+          (mouseleave)="sigNode = null"
+        >
+          <img [src]="node.imageUrl" alt="" />
+          <p class="node-label">{{ node.label }}</p>
 
-  <img [src]="node.imageUrl" alt="" />
-  <p class="node-label">{{ node.label }}</p>
-
-
-  <div class="container" [class.visible]="sigNode === node">
-    <div class="title">{{ node.details.title }}</div>
-    <div class="grid">
-      <div>{{ node.details.rows[0].text1 }}</div>
-      <div>{{ node.details.rows[0].text2 }}</div>
-      <div>{{ node.details.rows[0].text3 }}</div>
-      <div>{{ node.details.rows[1].text4 }}</div>
-      <div>{{ node.details.rows[1].text5 }}</div>
-      <div>{{ node.details.rows[1].text6 }}</div>
-    </div>
-    <div class="footer">Lorem: 1.2.3.4</div>
-  </div>
-</div>
-
-
-
-  <img src="image.svg" alt="Arrow-Left" />
-
-  
-  <ng-container *ngFor="let node of middleNode; let i = index">
-    <div class="middle-node"
-         (mouseenter)="midNode = node"
-         (mouseleave)="midNode = null">
-      
-      <div class="network-node">
-        <img [src]="node.imageUrl" alt="" />
-        <p class="node-label">{{ node.label }}</p>
-      </div>
-
-      <!-- Hover card -->
-      <div class="info-card" *ngIf="midNode === node">
-        <div class="info-wrapper">
-          
-          <div class="info-header">
-            <div class="icon-circle">
-              <img [src]="node.imageUrl" alt="Server">
+          <div class="container" [class.visible]="sigNode === node">
+            <div class="title">{{ node.details.title }}</div>
+            <div class="grid">
+              <div>{{ node.details.rows[0].text1 }}</div>
+              <div>{{ node.details.rows[0].text2 }}</div>
+              <div>{{ node.details.rows[0].text3 }}</div>
+              <div>{{ node.details.rows[1].text4 }}</div>
+              <div>{{ node.details.rows[1].text5 }}</div>
+              <div>{{ node.details.rows[1].text6 }}</div>
             </div>
-            <div class="header-text">{{ node.details.title }}</div>
-          </div>
-
-          <!-- Rows -->
-          <div class="detail-line" *ngFor="let row of node.details.rows">
-            <img *ngIf="row.icon" [src]="row.icon" alt="Document" class="doc-icon">
-            <span *ngIf="row.text1" class="label-strong">{{ row.text1 }}</span>
-            <span *ngIf="row.text2" class="grey-text">{{ row.text2 }}</span>
-            <span *ngIf="row.text3" class="highlight-tag">{{ row.text3 }}</span>
-            <span *ngIf="row.text4" class="highlight-tag">{{ row.text4 }}</span>
-            <span *ngIf="row.text5" class="label-strong">{{ row.text5 }}</span>
-            <span *ngIf="row.text6" class="highlight-tag">{{ row.text6 }}</span>
-            <span *ngIf="row.text7" class="highlight-tag">{{ row.text7 }}</span>
+            <div class="footer">Lorem: 1.2.3.4</div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Arrow between middle nodes -->
-    <img *ngIf="i < middleNode.length - 1" src="image.svg" alt="Arrow-Left" />
-  </ng-container>
-</div>
+        <img src="image.svg" alt="Arrow-Left" />
+
+        <ng-container *ngFor="let node of middleNode; let i = index">
+          <div
+            class="middle-node"
+            (mouseenter)="midNode = node"
+            (mouseleave)="midNode = null"
+          >
+            <div class="network-node">
+              <img [src]="node.imageUrl" alt="" />
+              <p class="node-label">{{ node.label }}</p>
+            </div>
+
+            <!-- Hover card -->
+            <div class="info-card" *ngIf="midNode === node">
+              <div class="info-wrapper">
+                <div class="info-header">
+                  <div class="icon-circle">
+                    <img [src]="node.imageUrl" alt="Server" />
+                  </div>
+                  <div class="header-text">{{ node.details.title }}</div>
+                </div>
+
+                <!-- Rows -->
+                <div class="detail-line" *ngFor="let row of node.details.rows">
+                  <img
+                    *ngIf="row.icon"
+                    [src]="row.icon"
+                    alt="Document"
+                    class="doc-icon"
+                  />
+                  <span *ngIf="row.text1" class="label-strong">{{
+                    row.text1
+                  }}</span>
+                  <span *ngIf="row.text2" class="grey-text">{{
+                    row.text2
+                  }}</span>
+                  <span *ngIf="row.text3" class="highlight-tag">{{
+                    row.text3
+                  }}</span>
+                  <span *ngIf="row.text4" class="highlight-tag">{{
+                    row.text4
+                  }}</span>
+                  <span *ngIf="row.text5" class="label-strong">{{
+                    row.text5
+                  }}</span>
+                  <span *ngIf="row.text6" class="highlight-tag">{{
+                    row.text6
+                  }}</span>
+                  <span *ngIf="row.text7" class="highlight-tag">{{
+                    row.text7
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow between middle nodes -->
+          <img
+            *ngIf="i < middleNode.length - 1"
+            src="image.svg"
+            alt="Arrow-Left"
+          />
+        </ng-container>
+      </div>
 
       <img src="bi-connection.svg" alt="Arrow-Left" />
 
@@ -128,7 +148,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class="network-status">
       <div class="status-node" *ngFor="let node of statusNode">
         <img

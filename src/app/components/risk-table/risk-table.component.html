@@ -48,19 +48,26 @@
         <h3>Contextual Risk</h3>
         <div class="risk-body">
           <div class="risk-legend">
-            <div class="legend-item" *ngFor="let risk of riskSummary">
+            <div class="legend-item" *ngFor="let risk of riskSummary" (mouseenter)="setHoverColor(risk.status)" (mouseleave)="resetColor()">
               <span class="legend-dot" [ngClass]="risk.status.toLowerCase()"></span>
               <span class="legend-count">{{ risk.count }}</span>
               <span [ngClass]="risk.status.toLowerCase()">{{ risk.status }}</span>
             </div>
           </div>
 
-          <div class="risk-circle">
-            <svg class="progress-ring" width="100" height="100">
-              <circle #circle class="progress-ring__circle" r="44" cx="50" cy="50" />
-            </svg>
-            <div class="circle-content">2</div>
-          </div>
+      <div class="risk-circle">
+        <svg class="progress-ring" width="100" height="100">
+          <circle
+            #circle
+            class="progress-ring__circle"
+            r="44"
+            cx="50"
+            cy="50"
+            [style.stroke]="getCircleColor()"
+          />
+        </svg>
+        <div class="circle-content">{{ totalRisks }}</div>
+      </div>
         </div>
       </div>
     </div>
