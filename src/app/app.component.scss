@@ -18,18 +18,17 @@
   &-expanded {
     margin-left: 10px;
     padding-left: 5rem;
-
   }
 
-      @media (max-width: 768px) {
-      margin: 0;
-    }
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 }
 
 .sidebar-toggle-btn {
   position: absolute;
   top: 1.3rem;
-  left: 220px; 
+  left: 220px;
   border: none;
   background: none;
   padding: 0.5rem;
@@ -37,14 +36,12 @@
   z-index: 1001;
   transition: all 0.3s ease;
 
-
   &.sidebar-collapsed {
     left: 53px;
     top: 26px;
   }
 
-
-      @media (max-width: 768px) {
-      visibility: hidden;
-    }
+  @media (max-width: 768px) {
+    visibility: hidden;
+  }
 }

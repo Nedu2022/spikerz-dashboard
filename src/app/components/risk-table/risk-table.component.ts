@@ -12,6 +12,7 @@ interface RiskAsset {
 interface RiskSummary {
   status: string,
   count: number,
+  color: string
 }
 
 @Component({
@@ -55,59 +56,26 @@ export class RiskTableComponent implements AfterViewInit {
 @ViewChild('circle') circle!: ElementRef<SVGCircleElement>;
 
   riskSummary: RiskSummary[] = [
-    { status: 'Critical', count: 2 },
-    { status: 'High', count: 0 },
-    { status: 'Medium', count: 0 },
-    { status: 'Low', count: 0 }
+    { status: 'Critical', count: 2, color: '#e03131' },
+    { status: 'High', count: 0, color: '#f76707' },
+    { status: 'Medium', count: 0, color:'#fab005' },
+    { status: 'Low', count: 0, color: '#37b24d' }
   ];
 
-  circleColor: string = ''; // Will be set to default in ngAfterViewInit
-
+  circleColor: string = ''; 
   get totalRisks(): number {
     return this.riskSummary.reduce((sum, risk) => sum + risk.count, 0);
   }
 
   ngAfterViewInit(): void {
-    this.circleColor = this.getCircleColor(); // Set initial color
-
     const total = this.totalRisks;
-    const maxDashOffset = 276.46; // Circle circumference
-    const dashOffset = total > 0 ? maxDashOffset * (1 - total / 10) : maxDashOffset; // Proportional fill
+    const maxDashOffset = 276.46;
+    const dashOffset = total > 0 ? maxDashOffset * (1 - total / 10) : maxDashOffset; 
 
     requestAnimationFrame(() => {
       this.circle.nativeElement.style.strokeDashoffset = dashOffset.toString();
     });
   }
 
-  getCircleColor(): string {
-    const critical = this.riskSummary.find(r => r.status === 'Critical')?.count || 0;
-    const high = this.riskSummary.find(r => r.status === 'High')?.count || 0;
-    const medium = this.riskSummary.find(r => r.status === 'Medium')?.count || 0;
 
-    if (critical > 0) return '#e03131';
-    if (high > 0) return '#f76707';
-    if (medium > 0) return '#fab005';
-    return '#37b24d';
-  }
-
-  setHoverColor(status: string): void {
-    switch (status.toLowerCase()) {
-      case 'critical':
-        this.circleColor = '#e03131';
-        break;
-      case 'high':
-        this.circleColor = '#f76707';
-        break;
-      case 'medium':
-        this.circleColor = '#fab005';
-        break;
-      case 'low':
-        this.circleColor = '#37b24d';
-        break;
-    }
-  }
-
-  resetColor(): void {
-    this.circleColor = this.getCircleColor();
-  }
 }

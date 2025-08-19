@@ -1,9 +1,9 @@
 <div>
   <h2 class="section-title">Lorem Lorem Lorem</h2>
 
-  <div class="main-flow">
-    <div class="network-diagram">
-      <div class="scroll-inner"></div>
+<div class="main-flow">
+  <div class="network-diagram">
+    <div class="scroll-inner">
       <div class="network-row">
         <div
           class="network-node"
@@ -14,6 +14,7 @@
           <img [src]="node.imageUrl" alt="" />
           <p class="node-label">{{ node.label }}</p>
 
+          <!-- Hover card positioned above -->
           <div class="container" [class.visible]="sigNode === node">
             <div class="title">{{ node.details.title }}</div>
             <div class="grid">
@@ -41,7 +42,7 @@
               <p class="node-label">{{ node.label }}</p>
             </div>
 
-            <!-- Hover card -->
+            <!-- Hover card positioned above -->
             <div class="info-card" *ngIf="midNode === node">
               <div class="info-wrapper">
                 <div class="info-header">
@@ -50,8 +51,6 @@
                   </div>
                   <div class="header-text">{{ node.details.title }}</div>
                 </div>
-
-                <!-- Rows -->
                 <div class="detail-line" *ngFor="let row of node.details.rows">
                   <img
                     *ngIf="row.icon"
@@ -59,88 +58,67 @@
                     alt="Document"
                     class="doc-icon"
                   />
-                  <span *ngIf="row.text1" class="label-strong">{{
-                    row.text1
-                  }}</span>
-                  <span *ngIf="row.text2" class="grey-text">{{
-                    row.text2
-                  }}</span>
-                  <span *ngIf="row.text3" class="highlight-tag">{{
-                    row.text3
-                  }}</span>
-                  <span *ngIf="row.text4" class="highlight-tag">{{
-                    row.text4
-                  }}</span>
-                  <span *ngIf="row.text5" class="label-strong">{{
-                    row.text5
-                  }}</span>
-                  <span *ngIf="row.text6" class="highlight-tag">{{
-                    row.text6
-                  }}</span>
-                  <span *ngIf="row.text7" class="highlight-tag">{{
-                    row.text7
-                  }}</span>
+                  <span *ngIf="row.text1" class="label-strong">{{ row.text1 }}</span>
+                  <span *ngIf="row.text2" class="grey-text">{{ row.text2 }}</span>
+                  <span *ngIf="row.text3" class="highlight-tag">{{ row.text3 }}</span>
+                  <span *ngIf="row.text4" class="highlight-tag">{{ row.text4 }}</span>
+                  <span *ngIf="row.text5" class="label-strong">{{ row.text5 }}</span>
+                  <span *ngIf="row.text6" class="highlight-tag">{{ row.text6 }}</span>
+                  <span *ngIf="row.text7" class="highlight-tag">{{ row.text7 }}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Arrow between middle nodes -->
           <img
             *ngIf="i < middleNode.length - 1"
             src="image.svg"
             alt="Arrow-Left"
           />
         </ng-container>
-      </div>
 
-      <img src="bi-connection.svg" alt="Arrow-Left" />
+        <img src="bi-connection.svg" alt="Arrow-Left" />
 
-      <div class="bi-holder">
-        <div
-          class="bi-row"
-          *ngFor="let node of endNodes"
-          (mouseenter)="hoverNode = node"
-          (mouseleave)="hoverNode = null"
-        >
-          <div class="network-binode">
-            <img [src]="node.imageUrl" class="node-img" alt="End Node" />
-            <span class="node-label">{{ node.label }}</span>
-            <p class="node-ip">{{ node.ip }}</p>
-          </div>
+        <div class="bi-holder">
+          <div
+            class="bi-row"
+            *ngFor="let node of endNodes"
+            (mouseenter)="hoverNode = node"
+            (mouseleave)="hoverNode = null"
+          >
+            <div class="network-binode">
+              <img [src]="node.imageUrl" class="node-img" alt="End Node" />
+              <span class="node-label">{{ node.label }}</span>
+              <p class="node-ip">{{ node.ip }}</p>
+            </div>
 
-          <!-- Hover card with proper positioning -->
-          <div class="hover-card" *ngIf="hoverNode === node">
-            <div>
-              <!-- Header -->
-              <div class="card-header">
-                <div class="card-icon">
-                  <img [src]="node.imageUrl" alt="Server" />
+            <!-- Hover card positioned above -->
+            <div class="hover-card" *ngIf="hoverNode === node">
+              <div>
+                <div class="card-header">
+                  <div class="card-icon">
+                    <img [src]="node.imageUrl" alt="Server" />
+                  </div>
+                  <div class="card-title">
+                    <h3>{{ node.details.title }}</h3>
+                    <p class="subtitle">{{ node.details.subtitle }}</p>
+                  </div>
                 </div>
-                <div class="card-title">
-                  <h3>{{ node.details.title }}</h3>
-                  <p class="subtitle">{{ node.details.subtitle }}</p>
-                </div>
-              </div>
-
-              <!-- Rows -->
-              <div class="card-row" *ngFor="let row of node.details.rows">
-                <!-- Row type with icon -->
-                <div class="row-content" *ngIf="row.text1 && row.text2">
-                  <img
-                    *ngIf="row.icon"
-                    [src]="row.icon"
-                    alt="Doc Icon"
-                    class="row-icon"
-                  />
-                  <strong>{{ row.text1 }}</strong>
-                  <span class="highlight-orange">{{ row.text2 }}</span>
-                </div>
-
-                <!-- Row type without icon -->
-                <div class="row-content" *ngIf="row.text3 && row.text4">
-                  <strong>{{ row.text3 }}</strong>
-                  <span class="highlight-blue">{{ row.text4 }}</span>
+                <div class="card-row" *ngFor="let row of node.details.rows">
+                  <div class="row-content" *ngIf="row.text1 && row.text2">
+                    <img
+                      *ngIf="row.icon"
+                      [src]="row.icon"
+                      alt="Doc Icon"
+                      class="row-icon"
+                    />
+                    <strong>{{ row.text1 }}</strong>
+                    <span class="highlight-orange">{{ row.text2 }}</span>
+                  </div>
+                  <div class="row-content" *ngIf="row.text3 && row.text4">
+                    <strong>{{ row.text3 }}</strong>
+                    <span class="highlight-blue">{{ row.text4 }}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -148,18 +126,19 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="network-status">
-      <div class="status-node" *ngFor="let node of statusNode">
-        <img
-          [src]="node.imageUrl"
-          class="status-img"
-          [alt]="node.imageAltText"
-        />
-        <span class="node-label-status" [ngClass]="node.status">
-          {{ node.label }}
-        </span>
-      </div>
+  <div class="network-status">
+    <div class="status-node" *ngFor="let node of statusNode">
+      <img
+        [src]="node.imageUrl"
+        class="status-img"
+        [alt]="node.imageAltText"
+      />
+      <span class="node-label-status" [ngClass]="node.status">
+        {{ node.label }}
+      </span>
     </div>
   </div>
+</div>
 </div>

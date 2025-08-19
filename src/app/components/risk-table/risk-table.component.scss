@@ -183,27 +183,16 @@
     }
   }
 
-  .critical {
-    color: #e03131;
-  }
-  .high {
-    color: #f76707;
-  }
-  .medium {
-    color: #fab005;
-  }
-  .low {
-    color: #37b24d;
-  }
 
   .risk-circle {
     position: relative;
     width: 100px;
     height: 100px;
+          color: #e03131;
 
     .progress-ring {
       transform: rotate(-90deg);
-
+            color: #e03131;
     }
 
     .progress-ring__circle {
@@ -212,6 +201,7 @@
       stroke-dasharray: 276.46;
       stroke-dashoffset: 276.46;
       transition: stroke-dashoffset 1s ease-out;
+            color: #e03131;
     }
 
     .circle-content {

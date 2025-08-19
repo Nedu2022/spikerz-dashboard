@@ -8,10 +8,13 @@
 }
 
 body {
-  height: 100vh;
  font-family: "Public Sans", sans-serif;
- overflow: hidden;
+ scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 }
+
 
 
 @media (max-width: 768px) {

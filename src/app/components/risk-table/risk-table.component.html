@@ -1,7 +1,7 @@
 <div class="container-fluid py-3">
   <div class="row g-3 flex-column flex-sm-row">
 
-    <!-- Risk Table -->
+
     <div class="col-12 col-lg-6 d-flex">
       <div class="risk-table-card w-100">
         <div class="table-responsive">
@@ -31,7 +31,7 @@
           </table>
         </div>
 
-        <!-- Pagination -->
+      
         <div class="pagination">
           <button class="pagination-btn"
                   (click)="previousPage()" [disabled]="currentPage === 1">‹</button>
@@ -42,13 +42,13 @@
       </div>
     </div>
 
-    <!-- Risk Summary -->
+
     <div class="col-12 col-lg-6 d-flex">
       <div class="risk-summary-card w-100">
         <h3>Contextual Risk</h3>
         <div class="risk-body">
           <div class="risk-legend">
-            <div class="legend-item" *ngFor="let risk of riskSummary" (mouseenter)="setHoverColor(risk.status)" (mouseleave)="resetColor()">
+            <div class="legend-item" *ngFor="let risk of riskSummary">
               <span class="legend-dot" [ngClass]="risk.status.toLowerCase()"></span>
               <span class="legend-count">{{ risk.count }}</span>
               <span [ngClass]="risk.status.toLowerCase()">{{ risk.status }}</span>
@@ -63,7 +63,6 @@
             r="44"
             cx="50"
             cy="50"
-            [style.stroke]="getCircleColor()"
           />
         </svg>
         <div class="circle-content">{{ totalRisks }}</div>
