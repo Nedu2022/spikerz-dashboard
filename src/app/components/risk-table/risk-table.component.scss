@@ -88,8 +88,8 @@
     gap: 8px;
 
     span {
-      background-color: #FFE2E0;
-      color: #C6190D;
+      background-color: #ffe2e0;
+      color: #c6190d;
       padding: 2px 16px;
       border-radius: 38px;
       font-size: 15px;
@@ -165,61 +165,61 @@
   }
 }
 
-  .legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    &.critical {
-      background-color: #e03131;
-    }
-    &.high {
-      background-color: #f76707;
-    }
-    &.medium {
-      background-color: #fab005;
-    }
-    &.low {
-      background-color: #37b24d;
-    }
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  &.critical {
+    background-color: #e03131;
+  }
+  &.high {
+    background-color: #f76707;
+  }
+  &.medium {
+    background-color: #fab005;
+  }
+  &.low {
+    background-color: #37b24d;
+  }
+}
+
+.risk-circle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  color: #e03131;
+
+  .progress-ring {
+    transform: rotate(-90deg);
+    color: #e03131;
   }
 
 
-  .risk-circle {
-    position: relative;
-    width: 100px;
-    height: 100px;
-          color: #e03131;
-
-    .progress-ring {
-      transform: rotate(-90deg);
-            color: #e03131;
-    }
-
-    .progress-ring__circle {
-      fill: none;
-      stroke-width: 6;
-      stroke-dasharray: 276.46;
-      stroke-dashoffset: 276.46;
-      transition: stroke-dashoffset 1s ease-out;
-            color: #e03131;
-    }
-
-    .circle-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 28px;
-      color: #495057;
-    }
+  .progress-ring__circle {
+    fill: none;
+    stroke-width: 6;
+    stroke-dasharray: 276.46;
+    stroke-dashoffset: 276.46;
+    transition: stroke-dashoffset 1s ease-out;
+   stroke: #e03131;
   }
 
-  /* Added keyframe for spin */
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  .circle-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    color: #495057;
   }
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

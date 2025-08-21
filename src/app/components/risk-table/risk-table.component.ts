@@ -3,6 +3,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgClass, NgFor } from '@angular/common';
 
 
+
 interface RiskAsset {
   name: string;
   ip: string;
@@ -12,7 +13,7 @@ interface RiskAsset {
 interface RiskSummary {
   status: string,
   count: number,
-  color: string
+  stroke: string
 }
 
 @Component({
@@ -55,27 +56,45 @@ export class RiskTableComponent implements AfterViewInit {
   }
 @ViewChild('circle') circle!: ElementRef<SVGCircleElement>;
 
-  riskSummary: RiskSummary[] = [
-    { status: 'Critical', count: 2, color: '#e03131' },
-    { status: 'High', count: 0, color: '#f76707' },
-    { status: 'Medium', count: 0, color:'#fab005' },
-    { status: 'Low', count: 0, color: '#37b24d' }
-  ];
+riskSummary: RiskSummary[] = [
+  { status: 'Critical', count: 2, stroke: '#e03131' },
+  { status: 'High', count: 3, stroke: '#f76707' },
+  { status: 'Medium', count: 2, stroke:'#fab005' },
+  { status: 'Low', count: 0, stroke: '#37b24d' }
+];
 
-  circleColor: string = ''; 
-  get totalRisks(): number {
-    return this.riskSummary.reduce((sum, risk) => sum + risk.count, 0);
-  }
+circleColor: string = '#e03131'; 
+maxDashOffset = 276.46;
+circleValue: number = 0;
 
-  ngAfterViewInit(): void {
-    const total = this.totalRisks;
-    const maxDashOffset = 276.46;
-    const dashOffset = total > 0 ? maxDashOffset * (1 - total / 10) : maxDashOffset; 
+get totalRisks(): number {
+  return this.riskSummary.reduce((sum, risk) => sum + risk.count, 0);
+}
 
-    requestAnimationFrame(() => {
-      this.circle.nativeElement.style.strokeDashoffset = dashOffset.toString();
-    });
-  }
+ngAfterViewInit(): void {
+  this.updateCircle(this.totalRisks, this.circleColor);
+}
+
+setCircleColor(risk: RiskSummary) {
+  this.updateCircle(risk.count, risk.stroke);
+}
+
+resetCircleColor() {
+  this.updateCircle(this.totalRisks, '#e03131');
+}
+
+updateCircle(count: number, stroke: string) {
+  const dashOffset = count > 0 
+    ? this.maxDashOffset * (1 - count / 10)
+    : this.maxDashOffset;
+
+  requestAnimationFrame(() => {
+    this.circle.nativeElement.style.strokeDashoffset = dashOffset.toString();
+    this.circleColor = stroke;
+    this.circleValue = count; 
+  });
+}
+
 
 
 }
