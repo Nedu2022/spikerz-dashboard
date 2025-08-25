@@ -114,7 +114,7 @@ export class NetworkFlowComponent {
         subtitle: '192.168.1.1',
         rows: [
           { icon: 'hover-doc.svg', text1: 'Lorem:', text2: 'Lorem “ipsum"' },
-          { text3: 'Loremipsum', text4: 'lorem 1234,5678' }
+          { text3: 'Loremipsum', text4: 'lorem 1234, 5678' }
         ]
       }
     }

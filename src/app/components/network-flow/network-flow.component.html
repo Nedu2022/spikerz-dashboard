@@ -6,7 +6,7 @@
     <div class="scroll-inner">
       <div class="network-row">
         <div
-          class="network-node"
+         
           *ngFor="let node of sourceNode"
           (mouseenter)="sigNode = node"
           (mouseleave)="sigNode = null"
@@ -37,7 +37,7 @@
             (mouseenter)="midNode = node"
             (mouseleave)="midNode = null"
           >
-            <div class="network-node">
+            <div class="">
               <img [src]="node.imageUrl" alt="" />
               <p class="node-label">{{ node.label }}</p>
             </div>

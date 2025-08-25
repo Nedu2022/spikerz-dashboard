@@ -77,7 +77,6 @@
 }
 
 
-
 .network-binode .node-img {
   width: 52.92px;
   height: 52.92px;
@@ -274,9 +273,10 @@
   width: 460px;
   height: 168px;
   position: absolute;
-  top: 25%;
-  left: 45%;
+  top: 55%;
+  left: 0%;
   opacity: 0;
+  z-index: 9999;
 }
 
 .container.visible {
